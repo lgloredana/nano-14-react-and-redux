@@ -222,22 +222,23 @@
             )
         }
 
-        addItem = (e) => {
-            e.preventDefault();
-            const name = this.input.value;
-            this.input.value = '';
 
-            const newTodo = {
-                id: generateId(),
-                name,
-                complete: false
-            };
-
-            this.props.store.dispatch(addTodoAction(newTodo));
-
-        };
 
         class Todos extends React.Component{
+            addItem = (e) => {
+                e.preventDefault();
+                const name = this.input.value;
+                this.input.value = '';
+
+                const newTodo = {
+                    id: generateId(),
+                    name,
+                    complete: false
+                };
+
+                this.props.store.dispatch(addTodoAction(newTodo));
+
+            };
             render(){
                 return(
                     <div>
@@ -247,7 +248,7 @@
                             placeholder="Add Todo"
                             ref={(input) => this.input = input}
                         />
-                        <button onClick="this.addItem">Add Todo</button>
+                        <button onClick={this.addItem}>Add Todo</button>
                         <List/>
                     </div>
                 )
@@ -270,14 +271,14 @@
             render () {
                 return (
                      <div>
-                        <Todos store="{this.props.store}"/>
-                        <Goals store="{this.props.store}/>
+                        <Todos store={this.props.store}/>
+                        <Goals store={this.props.store}/>
                      </div>
                 )
             }
         }
         ReactDOM.render(
-            <App store="{store}"/>,
+            <App store={store}/>,
             document.getElementById('app')
         )
     </script>
