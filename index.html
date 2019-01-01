@@ -227,8 +227,8 @@
         class Todos extends React.Component{
             addItem = (e) => {
                 e.preventDefault();
-                const name = this.input.value;
-                this.input.value = '';
+                const name = this.inputTodo.value;
+                this.inputTodo.value = '';
 
                 const newTodo = {
                     id: generateId(),
@@ -246,7 +246,7 @@
                         <input
                             type="text"
                             placeholder="Add Todo"
-                            ref={(input) => this.input = input}
+                            ref={(input) => this.inputTodo = input}
                         />
                         <button onClick={this.addItem}>Add Todo</button>
                         <List/>
