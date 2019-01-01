@@ -225,7 +225,7 @@
 
 
         class Todos extends React.Component{
-            addItem = (e) => {
+            addTodoItem = (e) => {
                 e.preventDefault();
                 const name = this.inputTodo.value;
                 this.inputTodo.value = '';
@@ -248,7 +248,7 @@
                             placeholder="Add Todo"
                             ref={(input) => this.inputTodo = input}
                         />
-                        <button onClick={this.addItem}>Add Todo</button>
+                        <button onClick={this.addTodoItem}>Add Todo</button>
                         <List/>
                     </div>
                 )
@@ -256,11 +256,29 @@
         }
 
         class Goals extends React.Component{
+            addGoalItem = (e) => {
+                e.preventDefault();
+                const name = this.inputGoal.value;
+                this.inputGoal.value = '';
+
+                const newGoal = {
+                    id: generateId(),
+                    name
+                };
+
+                this.props.store.dispatch(addGoalAction(newGoal));
+
+            };
             render(){
                 return(
                     <div>
-                        GOALS
-
+                        <h1>Goals List</h1>
+                        <input
+                            type="text"
+                            placeholder="Add Goal"
+                            ref={(input) => this.inputGoal = input}
+                        />
+                        <button onClick={this.addGoalItem}>Add Goal</button>
                         <List/>
                     </div>
                 )
