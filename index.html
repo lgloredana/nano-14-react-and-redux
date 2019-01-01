@@ -217,7 +217,13 @@
         function List(props) {
             return (
                 <ul>
-                    <li>List</li>
+                    {props.items.map(item => (
+                        <li key={item.id}>
+                            <span>
+                                {item.name}
+                            </span>
+                        </li>
+                    ))}
                 </ul>
             )
         }
@@ -249,7 +255,7 @@
                             ref={(input) => this.inputTodo = input}
                         />
                         <button onClick={this.addTodoItem}>Add Todo</button>
-                        <List/>
+                        <List items={this.props.todos}/>
                     </div>
                 )
             }
@@ -279,18 +285,25 @@
                             ref={(input) => this.inputGoal = input}
                         />
                         <button onClick={this.addGoalItem}>Add Goal</button>
-                        <List/>
+                        <List items={this.props.goals}/>
                     </div>
                 )
             }
         }
 
         class App extends React.Component {
+            componentDidMount () {
+                const { store } = this.props;
+                store.subscribe(() => this.forceUpdate())
+            }
+
             render () {
+                const { store } = this.props;
+                const { todos, goals } = store.getState();
                 return (
                      <div>
-                        <Todos store={this.props.store}/>
-                        <Goals store={this.props.store}/>
+                        <Todos todos={todos} store={store}/>
+                        <Goals goals={goals} store={store}/>
                      </div>
                 )
             }
