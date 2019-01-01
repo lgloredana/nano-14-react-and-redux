@@ -2,13 +2,10 @@
 This is a project which allows to see how the redux library works. 
 
 Summary  
-     - Shows how to convert a plain HTML application to one using React Components.   
-     - Improve the code's organization by breaking out separate parts into reusable chunks. 
-  
-Shows how :
- - the standard DOM can be manipulate using Redux lib.
- - Redux can work with 2 states and 2 reducers
- - to use middleware for intercepting manipulation before actually dispatching the action.
+ - Shows how to convert a plain HTML application to one using React Components.   
+ - Improve the code's organization by breaking out separate parts into reusable chunks. 
+ - Shows how Redux can work with 2 states and 2 reducers
+ - Use middleware for intercepting manipulation before actually dispatching the action.
 
 Implemented functionality:
 
