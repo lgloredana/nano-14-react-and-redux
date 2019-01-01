@@ -1,5 +1,9 @@
 # The purpose of this project
-This is a project which allows to see how the redux library works.  
+This is a project which allows to see how the redux library works. 
+
+Summary  
+     - Shows how to convert a plain HTML application to one using React Components.   
+     - Improve the code's organization by breaking out separate parts into reusable chunks. 
   
 Shows how :
  - the standard DOM can be manipulate using Redux lib.
